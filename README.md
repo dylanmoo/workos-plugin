@@ -31,6 +31,29 @@ That's it. The five skills below become available as slash commands.
 | `/create-workstation` | When starting a new client engagement, recurring workflow, or area of work that deserves its own folder |
 | `/workspace-audit` | Weekly first month, monthly after — or any time output quality slips |
 
+## How to compound learnings over time
+
+WorkOS gets sharper the more you use it. Every correction, decision, and fact has a home that future sessions automatically inherit. The loop:
+
+1. **First session** — run `/init-workos` in your project directory. The scaffold lands on top of your existing files; nothing moves or gets renamed.
+2. **Every session** — the agent auto-reads `MEMORY.md` at the relevant scope. Say "remember this" mid-session to file a fact. End the session with "audit this session" to run `/session-audit`, which scans the conversation for corrections and decisions you didn't think to save and proposes where each belongs.
+3. **When work grows** — run `/create-workstation` whenever a new client, project, or recurring area emerges. Three questions, one new routable folder with its own `CLAUDE.md` and `MEMORY.md`.
+4. **Every few weeks** — run `/workspace-audit`. Flags misplaced entries, oversized files, completed projects to archive, and content that should cascade to a more specific scope.
+
+### Where things go
+
+| What you have | Where it lives |
+|---|---|
+| A rule (`"always do X"`, `"never do Y"`) | `CLAUDE.md` — most-specific scope wins (workstation > domain > root) |
+| A mutable fact (contact, status, decision) | `MEMORY.md` — same scoping |
+| Durable knowledge true on a 6-month horizon | `{domain}/resources/<topic>.md` |
+| Source material (transcripts, articles, raw notes) | `{domain}/raw/` |
+| Completed projects, aged-out facts | `ARCHIVE.md` — write-only, never read at session start |
+
+### The compounding effect
+
+Corrections given once become rules. Facts mentioned once stay recalled. Lessons distilled from experience accumulate in `resources/`. The agent grows into your specific working style instead of resetting every session. Most of this happens automatically — you just need to actually run `/session-audit` at the end and `/workspace-audit` on a cadence.
+
 ## Update
 
 When a new version ships:
