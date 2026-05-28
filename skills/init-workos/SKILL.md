@@ -46,7 +46,13 @@ Add this line at the top of each of the templates below (after frontmatter where
 
 ## Step 1: Confirm the workspace root
 
-**Narrate:** "I'm going to scaffold a WorkOS workspace over `<cwd>`. That means adding a few markdown files that make Claude smarter session-over-session by giving it persistent memory and routing. I won't move or modify any of your existing files, and the whole scaffold is reversible via `/uninit-workos`. OK to scan your folder structure?"
+**Narrate:** "I'm going to scaffold a WorkOS workspace over `<cwd>` — a set of markdown files that make Claude smarter session-over-session by giving it persistent memory and routing. Quick vocabulary first, since these three terms show up everywhere from here on:
+
+- **Workstation** — a folder for one ongoing thing: a client engagement, a project, a workshop, a recurring area of work. Each workstation gets its own `CLAUDE.md` (identity, workflow, editorial rules) and `MEMORY.md` (active work, contacts, decisions) so Claude loads the right context the moment you say what you're working on. Workstations are the unit that compounds — most of the long-term value of WorkOS shows up here.
+- **Domain** — a top-level area of work that contains workstations. Examples: `personal/`, `clients/`, `research/`, `mana/`.
+- **Group** (optional) — a folder inside a domain that bundles related workstations together. Example: a `clients/` folder containing `acme/`, `widgetco/`, `crossgate/` — `clients/` is the group, each company folder is a workstation.
+
+I won't move or modify any of your existing files, and the whole scaffold is reversible via `/uninit-workos`. OK to scan your folder structure?"
 
 Use the current working directory as the workspace root. State the path back to the user and wait for confirmation before scanning.
 
