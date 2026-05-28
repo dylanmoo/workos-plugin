@@ -15,7 +15,7 @@ Three things, and only three things:
 2. **Classifies** each scaffold file as clean (unchanged from the original template) or edited (the user added content after init).
 3. **Removes** clean scaffold files automatically; asks the user file-by-file what to do with edited ones.
 
-Anything without the sentinel — pre-existing documents, files the user wrote later, files created by `/create-workstation` — is never touched.
+Anything without the sentinel — pre-existing documents, files the user wrote later, files created by `/create-project` — is never touched.
 
 ## The sentinel
 
@@ -35,7 +35,7 @@ Use the current working directory as the workspace root. State the path back to 
 
 ## Step 2: Find all scaffold files
 
-Recursively grep the workspace for files containing `workos-init-scaffold v1`. Limit to depth 3 (root → domain → workstation) to match what `/init-workos` could have created. Filenames to inspect:
+Recursively grep the workspace for files containing `workos-init-scaffold v1`. Limit to depth 3 (root → domain → project, or root → domain → group → project) to match what `/init-workos` could have created. Filenames to inspect:
 
 - `CLAUDE.md`
 - `MEMORY.md`
@@ -137,7 +137,7 @@ If yes, mirror the directory structure inside `.workos-uninit-backup/<timestamp>
 
 ## What this skill does NOT do
 
-- **Doesn't delete files without the sentinel.** Anything the user wrote, anything `/create-workstation` created, anything pre-existing — all left alone.
+- **Doesn't delete files without the sentinel.** Anything the user wrote, anything `/create-project` created, anything pre-existing — all left alone.
 - **Doesn't delete folders.** `/init-workos` doesn't create folders, so there's nothing to remove on the folder side. Empty subfolders the user wants to clean up are a separate manual step.
 - **Doesn't touch `raw/` or `resources/` contents.** `/init-workos` never wrote there.
 - **Doesn't uninstall the WorkOS plugin or any other skills.** Those are managed at the Claude Desktop level, not by this skill.

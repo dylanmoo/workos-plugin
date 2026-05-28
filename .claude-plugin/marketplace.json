@@ -6,14 +6,14 @@
   },
   "metadata": {
     "description": "WorkOS — a set of skills for running a Cowork-style markdown workspace. Compounds context over time and keeps CLAUDE.md / MEMORY.md lean.",
-    "version": "1.2.1"
+    "version": "2.0.0"
   },
   "plugins": [
     {
       "name": "workos",
       "source": "./",
-      "description": "Five skills for running a Cowork-style markdown workspace: init-workos, uninit-workos, create-workstation, session-audit, workspace-audit.",
-      "version": "1.2.1",
+      "description": "Five skills for running a Cowork-style markdown workspace: init-workos, uninit-workos, create-project, session-audit, workspace-audit.",
+      "version": "2.0.0",
       "author": {
         "name": "Dylan Moore"
       },

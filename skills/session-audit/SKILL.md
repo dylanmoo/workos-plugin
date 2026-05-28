@@ -18,14 +18,13 @@ That's it. No file reorganization, no cleanup, no progress tracking. Just: "Did 
 
 ## Step 1: Discover Your Workspace
 
-Find your workspace root dynamically. Look for a CLAUDE.md file in the mounted workspace folder. Read whatever workspace files exist. The audit adapts to your setup — it works whether you have one workstation or twenty.
+Find your workspace root dynamically. Look for a CLAUDE.md file in the mounted workspace folder. Read whatever workspace files exist. The audit adapts to your setup — it works whether you have one project or twenty.
 
 Read these files if they exist:
 1. Root CLAUDE.md (your standing instructions)
 2. Root MEMORY.md (your accumulated context)
-3. Any workstation CLAUDE.md and MEMORY.md files that were used during this session
-4. Any project CLAUDE.md and MEMORY.md files that were used during this session
-5. Any reference files that were loaded during this session (e.g., voice-principles.md)
+3. Any project CLAUDE.md and MEMORY.md files that were used during this session
+4. Any reference files that were loaded during this session (e.g., voice-principles.md)
 
 ## Step 2: Scan the Conversation
 

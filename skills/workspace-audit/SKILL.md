@@ -1,6 +1,6 @@
 ---
 name: workspace-audit
-description: "Audits a WorkOS workspace for drift — misplaced entries, size-ceiling violations, archive candidates, format violations, and engagement-specific content that should cascade to a workstation. Use when the user says 'workspace audit,' 'audit my workspace,' 'check my CLAUDE.md,' 'check my MEMORY.md,' 'is my workspace healthy,' or when periodically maintaining a WorkOS-style workspace. Distinct from session-audit, which only captures new learnings from the current conversation — this skill audits the workspace files themselves."
+description: "Audits a WorkOS workspace for drift — misplaced entries, size-ceiling violations, archive candidates, format violations, and engagement-specific content that should cascade to a project. Use when the user says 'workspace audit,' 'audit my workspace,' 'check my CLAUDE.md,' 'check my MEMORY.md,' 'is my workspace healthy,' or when periodically maintaining a WorkOS-style workspace. Distinct from session-audit, which only captures new learnings from the current conversation — this skill audits the workspace files themselves."
 ---
 
 # Starter Workspace Audit
@@ -21,7 +21,7 @@ Five checks, then a single grouped report. Never writes changes without explicit
 
 Find the WorkOS root dynamically. Look for a `CLAUDE.md` with a Routing Map section in the mounted workspace. That's the root.
 
-If the user named a specific workstation to audit (e.g., "audit my Email HQ workstation"), audit that one instead of the root.
+If the user named a specific project to audit (e.g., "audit my Email HQ project"), audit that one instead of the root.
 
 If you can't find a root, stop and tell the user — don't invent structure.
 
@@ -79,17 +79,17 @@ For each bullet or entry in `MEMORY.md`:
 
 For each entry in root `MEMORY.md`:
 
-- Does the entry describe a specific workstation, engagement, or sub-domain (not generic root-level context)?
-- If yes, does that workstation have its own `MEMORY.md`?
-- If the workstation `MEMORY.md` exists, propose moving the detail there and replacing the root entry with a short pointer (e.g., "Latest status in `[Workstation Name]/MEMORY.md`").
-- If no workstation `MEMORY.md` exists yet, flag it as a candidate for `create-workstation`.
+- Does the entry describe a specific project, engagement, or sub-domain (not generic root-level context)?
+- If yes, does that project have its own `MEMORY.md`?
+- If the project `MEMORY.md` exists, propose moving the detail there and replacing the root entry with a short pointer (e.g., "Latest status in `[Project Name]/MEMORY.md`").
+- If no project `MEMORY.md` exists yet, flag it as a candidate for `create-project`.
 
 ## Step 4: Present Findings
 
 Group findings by check. Use this format:
 
 ```
-**Workspace Audit Report — [date] — [scope: root / workstation name]**
+**Workspace Audit Report — [date] — [scope: root / project name]**
 
 ## A. Wrong-location entries
 
@@ -131,7 +131,7 @@ After the user approves (all, some, or none of the findings), write the approved
 - Moves between files (cut from source, paste to destination)
 - Compressed entries (replace verbose version with compressed)
 - Archive transfers (cut from MEMORY.md, paste to ARCHIVE.md under the right section)
-- Cascade transfers (cut from root MEMORY.md, paste to workstation MEMORY.md, leave a one-line pointer in root)
+- Cascade transfers (cut from root MEMORY.md, paste to project MEMORY.md, leave a one-line pointer in root)
 
 **Important:** Never write changes without approval. Always present findings first and wait.
 
@@ -144,7 +144,7 @@ After the user approves (all, some, or none of the findings), write the approved
 
 ## What This Skill Does NOT Do
 
-- Doesn't audit per-workstation files unless explicitly asked. Default scope is the root.
-- Doesn't merge or split workstations. If a workstation looks misaligned with how it's actually being used, surface it as a finding but don't try to fix it programmatically.
+- Doesn't audit per-project files unless explicitly asked. Default scope is the root.
+- Doesn't merge or split projects. If a project looks misaligned with how it's actually being used, surface it as a finding but don't try to fix it programmatically.
 - Doesn't change the schema or section structure of any file. It moves entries; it doesn't redesign.
-- Doesn't run other skills as part of its flow. If a cascade finding suggests creating a new workstation, surface that as a recommendation and let the user invoke `create-workstation` separately.
+- Doesn't run other skills as part of its flow. If a cascade finding suggests creating a new project, surface that as a recommendation and let the user invoke `create-project` separately.

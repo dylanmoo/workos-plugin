@@ -1,7 +1,7 @@
 {
   "name": "workos",
-  "version": "1.2.1",
-  "description": "WorkOS — five skills for running a Cowork-style markdown workspace: init-workos (one-time bootstrap over an existing project-organized directory), uninit-workos (reversible cleanup via sentinel markers), create-workstation (add a new workstation), session-audit (end-of-session capture), workspace-audit (periodic file health check). Designed to compound context over time and keep CLAUDE.md / MEMORY.md lean.",
+  "version": "2.0.0",
+  "description": "WorkOS — five skills for running a Cowork-style markdown workspace: init-workos (one-time bootstrap over an existing project-organized directory), uninit-workos (reversible cleanup via sentinel markers), create-project (add a new project), session-audit (end-of-session capture), workspace-audit (periodic file health check). Designed to compound context over time and keep CLAUDE.md / MEMORY.md lean.",
   "author": {
     "name": "Dylan Moore",
     "url": "https://github.com/dylanmoo"
