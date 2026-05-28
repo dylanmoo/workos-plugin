@@ -1,0 +1,32 @@
+{
+  "name": "workos-plugin",
+  "owner": {
+    "name": "Dylan Moore",
+    "url": "https://github.com/dylanmoo"
+  },
+  "metadata": {
+    "description": "WorkOS — a set of skills for running a Cowork-style markdown workspace. Compounds context over time and keeps CLAUDE.md / MEMORY.md lean.",
+    "version": "1.1.0"
+  },
+  "plugins": [
+    {
+      "name": "workos",
+      "source": "./",
+      "description": "Five skills for running a Cowork-style markdown workspace: init-workos, uninit-workos, create-workstation, session-audit, workspace-audit.",
+      "version": "1.1.0",
+      "author": {
+        "name": "Dylan Moore"
+      },
+      "keywords": [
+        "workos",
+        "cowork",
+        "memory",
+        "knowledge-management",
+        "workspace",
+        "markdown"
+      ],
+      "category": "productivity",
+      "strict": false
+    }
+  ]
+}
